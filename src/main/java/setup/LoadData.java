@@ -10,10 +10,11 @@ import java.util.Set;
 
 public class LoadData {
 
-    protected static void loadInRedis(Map<String, Restaurant> listOfRestaurant, boolean datasetAvailable) {
+    protected static boolean loadInRedis(Map<String, Restaurant> listOfRestaurant) {
+        boolean redisUpdate = false;
         Jedis redisConnection = DatabaseUtility.createJedisConnection();
 
-        if (redisConnection.isConnected() && datasetAvailable) {
+        if (redisConnection.isConnected()) {
             System.out.println("  Updating of database in progress ...");
             //Delete all data in database
             redisConnection.flushDB();
@@ -39,12 +40,10 @@ public class LoadData {
                 redisConnection.geoadd(DatabaseUtility.buildKeyGeoSpatialIndex(),
                         restaurant.getLongitude(),
                         restaurant.getLatitude(), restaurant.getRestaurantID());
+                redisUpdate = true;
             }
-        } else {
-            System.out.println("  We will use the latest available version of the database");
         }
-        System.out.println("APPLICATION SET-UP ENDED");
-        System.out.println("===========================================================================");
+        return redisUpdate;
     }
 
 
@@ -69,5 +68,4 @@ public class LoadData {
 
         return restaurantMap;
     }
-
 }

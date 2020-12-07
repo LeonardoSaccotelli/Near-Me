@@ -8,17 +8,17 @@ import java.util.Map;
 
 public class SetupApplication {
     private static Map<String, Restaurant> listOfRestaurant = new HashMap<>();
-    private static boolean datasetAvailable = false;
 
-    public static void setupApplication(){
+    public static boolean setupApplication() {
         System.out.println("APPLICATION SET-UP IN PROGRESS, WAIT!");
         try {
             listOfRestaurant = CsvReader.readCsvFile();
-            datasetAvailable = true;
         } catch (IOException e) {
-            System.out.println("  Error! Unable to read from file.");
+            System.out.println("  Error! Unable to read from file");
+            System.out.println("APPLICATION SET-UP ENDED");
+            return false;
         }
 
-        LoadData.loadInRedis(listOfRestaurant, datasetAvailable);
+        return LoadData.loadInRedis(listOfRestaurant);
     }
 }
