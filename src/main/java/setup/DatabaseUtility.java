@@ -20,16 +20,20 @@ public class DatabaseUtility {
         return redisConnection;
     }
 
-    public static String buildKeyStructure(int pathRequest) {
-        String structureDataBase = "";
-        if (pathRequest == 1) {
-            structureDataBase = DatabaseSchema.Restaurant.RESTAURANT
-                    + ":" + DatabaseSchema.Restaurant.Content.INFO;
-        } else if (pathRequest == 2) {
-            structureDataBase = DatabaseSchema.Restaurant.RESTAURANT
-                    + ":" + DatabaseSchema.Restaurant.Content.GEO;
-        }
-        return structureDataBase;
+    public static String buildKeyCuisinesSet(String restaurantID) {
+        return DatabaseSchema.Restaurant.RESTAURANT + ":" +
+                DatabaseSchema.Restaurant.Content.CUISINES + ":" +
+                restaurantID;
     }
 
+    public static String buildKeyGeoSpatialIndex() {
+        return DatabaseSchema.Restaurant.RESTAURANT + ":" +
+                DatabaseSchema.Restaurant.Content.GEO;
+    }
+
+    public static String buildKeyHashRestaurant(String restaurantID) {
+        return DatabaseSchema.Restaurant.RESTAURANT + ":" +
+                DatabaseSchema.Restaurant.Content.INFO + ":" +
+                restaurantID;
+    }
 }

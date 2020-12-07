@@ -1,27 +1,27 @@
 package model;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Objects;
 
 public class Restaurant {
-    private String restaurantID;
-    private String restaurantName;
+    private final String restaurantID;
+    private final String restaurantName;
 
-    private float latitude;
-    private float longitude;
-    private String city;
-    private String address;
-    private String locality;
-
-    private String[] cuisines;
-    private double averageCostForTwo;
-    private boolean hasTableBooking;
-    private boolean hasOnlineDelivery;
-    private boolean isDeliveringNow;
-    private int priceRange;
-    private double aggregateRating;
-    private String ratingText;
-    private int numberOfVotes;
+    private final float latitude;
+    private final float longitude;
+    private final String city;
+    private final String address;
+    private final String locality;
+    private final ArrayList<String> cuisines;
+    private final double averageCostForTwo;
+    private final boolean hasTableBooking;
+    private final boolean hasOnlineDelivery;
+    private final boolean isDeliveringNow;
+    private final int priceRange;
+    private final double aggregateRating;
+    private final String ratingText;
+    private final int numberOfVotes;
 
     public Restaurant(String restaurantID, String restaurantName, float latitude,
                       float longitude, String city, String address, String locality,
@@ -35,7 +35,8 @@ public class Restaurant {
         this.city = city;
         this.address = address;
         this.locality = locality;
-        this.cuisines = cuisines;
+        this.cuisines = new ArrayList<>();
+        Collections.addAll(this.cuisines, cuisines);
         this.averageCostForTwo = averageCostForTwo;
         this.hasTableBooking = hasTableBooking.trim().equalsIgnoreCase("yes");
         this.hasOnlineDelivery = hasOnlineDelivery.trim().equalsIgnoreCase("yes");
@@ -74,7 +75,7 @@ public class Restaurant {
         return locality;
     }
 
-    public String[] getCuisines() {
+    public ArrayList<String> getCuisines() {
         return cuisines;
     }
 
@@ -133,7 +134,7 @@ public class Restaurant {
                 ", city='" + city + '\'' +
                 ", address='" + address + '\'' +
                 ", locality='" + locality + '\'' +
-                ", cuisines=" + Arrays.toString(cuisines) +
+                ", cuisines=" + cuisines.toString() +
                 ", averageCostForTwo=" + averageCostForTwo +
                 ", hasTableBooking=" + hasTableBooking +
                 ", hasOnlineDelivery=" + hasOnlineDelivery +
