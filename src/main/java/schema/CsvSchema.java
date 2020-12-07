@@ -1,12 +1,11 @@
-package setup;
+package schema;
 
-public enum HeaderCsvFile {
+public enum CsvSchema {
     Restaurant_ID,
     Restaurant_Name,
     City,
     Address,
     Locality,
-    Locality_Verbose,
     Longitude,
     Latitude,
     Cuisines,

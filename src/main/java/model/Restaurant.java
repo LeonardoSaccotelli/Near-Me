@@ -1,123 +1,121 @@
 package model;
-import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.Objects;
 
 public class Restaurant {
     private String restaurantID;
     private String restaurantName;
-    private GeolocationData geolocation;
+
+    private float latitude;
+    private float longitude;
+    private String city;
+    private String address;
+    private String locality;
+
     private String[] cuisines;
-    private float averageCostForTwo;
+    private double averageCostForTwo;
     private boolean hasTableBooking;
     private boolean hasOnlineDelivery;
     private boolean isDeliveringNow;
     private int priceRange;
-    private Rating rating;
+    private double aggregateRating;
+    private String ratingText;
+    private int numberOfVotes;
 
-    public Restaurant(String restaurantID, String restaurantName,
-                      GeolocationData geolocation, String[] cuisines,
-                      float averageCostForTwo, String hasTableBooking,
-                      String hasOnlineDelivery, String isDeliveringNow,
-                      int priceRange, Rating rating) {
+    public Restaurant(String restaurantID, String restaurantName, float latitude,
+                      float longitude, String city, String address, String locality,
+                      String[] cuisines, double averageCostForTwo, String hasTableBooking,
+                      String hasOnlineDelivery, String isDeliveringNow, int priceRange,
+                      double aggregateRating, String ratingText, int numberOfVotes) {
         this.restaurantID = restaurantID;
         this.restaurantName = restaurantName;
-        this.geolocation = geolocation;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.city = city;
+        this.address = address;
+        this.locality = locality;
         this.cuisines = cuisines;
         this.averageCostForTwo = averageCostForTwo;
         this.hasTableBooking = hasTableBooking.trim().equalsIgnoreCase("yes");
         this.hasOnlineDelivery = hasOnlineDelivery.trim().equalsIgnoreCase("yes");
         this.isDeliveringNow = isDeliveringNow.trim().equalsIgnoreCase("yes");
         this.priceRange = priceRange;
-        this.rating = rating;
+        this.aggregateRating = aggregateRating;
+        this.ratingText = ratingText;
+        this.numberOfVotes = numberOfVotes;
     }
 
     public String getRestaurantID() {
         return restaurantID;
     }
 
-    public void setRestaurantID(String restaurantID) {
-        this.restaurantID = restaurantID;
-    }
-
     public String getRestaurantName() {
         return restaurantName;
     }
 
-    public void setRestaurantName(String restaurantName) {
-        this.restaurantName = restaurantName;
+    public float getLatitude() {
+        return latitude;
     }
 
-    public GeolocationData getGeolocation() {
-        return geolocation;
+    public float getLongitude() {
+        return longitude;
     }
 
-    public void setGeolocation(GeolocationData geolocation) {
-        this.geolocation = geolocation;
+    public String getCity() {
+        return city;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getLocality() {
+        return locality;
     }
 
     public String[] getCuisines() {
         return cuisines;
     }
 
-    public void setCuisines(String[] cuisines) {
-        this.cuisines = cuisines;
-    }
-
-    public float getAverageCostForTwo() {
+    public double getAverageCostForTwo() {
         return averageCostForTwo;
-    }
-
-    public void setAverageCostForTwo(float averageCostForTwo) {
-        this.averageCostForTwo = averageCostForTwo;
     }
 
     public boolean isHasTableBooking() {
         return hasTableBooking;
     }
 
-    public void setHasTableBooking(boolean hasTableBooking) {
-        this.hasTableBooking = hasTableBooking;
-    }
-
     public boolean isHasOnlineDelivery() {
         return hasOnlineDelivery;
-    }
-
-    public void setHasOnlineDelivery(boolean hasOnlineDelivery) {
-        this.hasOnlineDelivery = hasOnlineDelivery;
     }
 
     public boolean isDeliveringNow() {
         return isDeliveringNow;
     }
 
-    public void setDeliveringNow(boolean deliveringNow) {
-        isDeliveringNow = deliveringNow;
-    }
-
     public int getPriceRange() {
         return priceRange;
     }
 
-    public void setPriceRange(int priceRange) {
-        this.priceRange = priceRange;
+    public double getAggregateRating() {
+        return aggregateRating;
     }
 
-    public Rating getRating() {
-        return rating;
+    public String getRatingText() {
+        return ratingText;
     }
 
-    public void setRating(Rating rating) {
-        this.rating = rating;
+    public int getNumberOfVotes() {
+        return numberOfVotes;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Restaurant that = (Restaurant) o;
-        return restaurantID.trim().equalsIgnoreCase(that.restaurantID.trim());
+        Restaurant temp = (Restaurant) o;
+        return restaurantID.trim().equalsIgnoreCase(temp.restaurantID);
     }
 
     @Override
@@ -127,17 +125,23 @@ public class Restaurant {
 
     @Override
     public String toString() {
-        return "Restaurant{" +
+        return "temp{" +
                 "restaurantID='" + restaurantID + '\'' +
                 ", restaurantName='" + restaurantName + '\'' +
-                ", geolocation=" + geolocation +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", city='" + city + '\'' +
+                ", address='" + address + '\'' +
+                ", locality='" + locality + '\'' +
                 ", cuisines=" + Arrays.toString(cuisines) +
                 ", averageCostForTwo=" + averageCostForTwo +
                 ", hasTableBooking=" + hasTableBooking +
                 ", hasOnlineDelivery=" + hasOnlineDelivery +
                 ", isDeliveringNow=" + isDeliveringNow +
                 ", priceRange=" + priceRange +
-                ", rating=" + rating +
+                ", aggregateRating=" + aggregateRating +
+                ", ratingText='" + ratingText + '\'' +
+                ", numberOfVotes=" + numberOfVotes +
                 '}';
     }
 }
