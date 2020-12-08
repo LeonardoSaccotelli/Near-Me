@@ -1,0 +1,26 @@
+# Print the list of restaurant in 500 km radius from user with 'Good' or 'Very Good' rating,
+  that have the average cost grater than 80$, with table booking
+1)  Restaurant Name: Wasabi by Morimoto - The Taj Mahal Hotel
+    Rating: 3.9	Good
+    Average cost for two: 84.0 $
+    Has table booking: Yes
+    Distance: 156 Km
+------------------------------------------------------------------------------------------------------------
+2)  Restaurant Name: 1911 - The Imperial
+    Rating: 3.9	Good
+    Average cost for two: 84.0 $
+    Has table booking: Yes
+    Distance: 158 Km
+------------------------------------------------------------------------------------------------------------
+3)  Restaurant Name: The Spice Route - The Imperial
+    Rating: 4.0	Very Good
+    Average cost for two: 84.0 $
+    Has table booking: Yes
+    Distance: 158 Km
+------------------------------------------------------------------------------------------------------------
+4)  Restaurant Name: Orient Express - Taj Palace Hotel
+    Rating: 4.0	Very Good
+    Average cost for two: 112.0 $
+    Has table booking: Yes
+    Distance: 159 Km
+------------------------------------------------------------------------------------------------------------

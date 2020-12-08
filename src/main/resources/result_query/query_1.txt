@@ -1,0 +1,41 @@
+# Print the list of the top 5 restaurant in 50 km radius from user, from closest to farthest
+1)  Restaurant Name: Balay Dako
+    City: Tagaytay City
+    Address: Aguinaldo Highway - Tagaytay City
+    Cuisines: [Filipino]
+    Price Range: 3
+    Rating: Excellent
+    Distance: 0 Km
+------------------------------------------------------------------------------------------------------------
+2)  Restaurant Name: Cafe Arabelle
+    City: Santa Rosa
+    Address: Ayala Mall - Solenad - Nuvali - Santa Rosa - Tagaytay Road - Don Jose - Santa Rosa
+    Cuisines: [ American , Cafe ,  Filipino,  Italian ]
+    Price Range: 3
+    Rating: Good
+    Distance: 19 Km
+------------------------------------------------------------------------------------------------------------
+3)  Restaurant Name: Nonna's Pasta & Pizzeria
+    City: Santa Rosa
+    Address: Ground Floor - Building G - Solenad 3 - Nuvali - Don Jose - Santa Rosa
+    Cuisines: [Italian ,  Pizza]
+    Price Range: 3
+    Rating: Very Good
+    Distance: 19 Km
+------------------------------------------------------------------------------------------------------------
+4)  Restaurant Name: Buffet 101
+    City: Pasay City
+    Address: Building K - SM By The Bay - Sunset Boulevard - Mall of Asia Complex (MOA) - Pasay City
+    Cuisines: [ European, Asian ]
+    Price Range: 4
+    Rating: Very Good
+    Distance: 48 Km
+------------------------------------------------------------------------------------------------------------
+5)  Restaurant Name: Vikings
+    City: Pasay City
+    Address: Building B - By The Bay - Seaside Boulevard - Mall of Asia Complex (MOA) - Pasay City
+    Cuisines: [ European,  Asian ,  Filipino , Seafood ]
+    Price Range: 4
+    Rating: Very Good
+    Distance: 49 Km
+------------------------------------------------------------------------------------------------------------
