@@ -12,7 +12,9 @@ public class Main {
          * */
         if (SetupApplication.setupApplication()) {
             System.out.println("SET-UP RESULT: SUCCESS");
-            System.out.println("===========================================================================");
+            System.out.println("============================================================================================================");
+            System.out.println("RUNNING QUERY");
+            System.out.println("============================================================================================================");
             ExecuteQueriesFromRedis.executeQueries();
 
         } else {
