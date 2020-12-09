@@ -21,7 +21,6 @@ public class PrintQueryResult {
                 "\n------------------------------------------------------------------------------------------------------------";
 
         System.out.println(queryResult);
-        printResultQueryOnFile(1, queryResult);
     }
 
     protected static void printRestaurantAggregateRating(Map<String, String> restaurant, int number) {
@@ -35,7 +34,6 @@ public class PrintQueryResult {
                 "\n------------------------------------------------------------------------------------------------------------";
 
         System.out.println(queryResult);
-        printResultQueryOnFile(2, queryResult);
     }
 
     protected static void printRestaurantWithRequiredRating(Map<String, String> restaurant, int number) {
@@ -46,7 +44,6 @@ public class PrintQueryResult {
                 "\n------------------------------------------------------------------------------------------------------------";
 
         System.out.println(queryResult);
-        printResultQueryOnFile(3, queryResult);
     }
 
     protected static void printRestaurantWithMultipleFilter(Map<String, String> restaurant, int number) {
@@ -59,7 +56,6 @@ public class PrintQueryResult {
                 "\n------------------------------------------------------------------------------------------------------------";
 
         System.out.println(queryResult);
-        printResultQueryOnFile(4, queryResult);
     }
 
     protected static void printRestaurantWithItalianCuisines(Map<String, String> restaurant, int number) {
@@ -72,19 +68,5 @@ public class PrintQueryResult {
                 "\n------------------------------------------------------------------------------------------------------------";
 
         System.out.println(queryResult);
-        printResultQueryOnFile(5, queryResult);
-    }
-
-    private static void printResultQueryOnFile(int nQuery, String content) {
-        String resourcesPathString = System.getProperty("user.dir") + "/src/main/resources/result_query";
-        String filename = "query_" + nQuery + ".txt";
-        String file = resourcesPathString + "/" + filename;
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
-            writer.append(content);
-            writer.close();
-        } catch (IOException e) {
-            System.out.println("  Error in writing query result on file");
-        }
     }
 }
