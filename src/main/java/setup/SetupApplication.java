@@ -11,14 +11,13 @@ public class SetupApplication {
 
     public static boolean setupApplication() {
         System.out.println("APPLICATION SET-UP IN PROGRESS, WAIT!");
-        try {
-            listOfRestaurant = CsvReader.readCsvFile();
-        } catch (IOException e) {
-            System.out.println("  Error! Unable to read from file");
-            System.out.println("APPLICATION SET-UP ENDED");
+        listOfRestaurant = CsvReader.readCsvFile();
+
+        if(listOfRestaurant!= null) {
+            return LoadData.loadInRedis(listOfRestaurant);
+        }else{
             return false;
         }
 
-        return LoadData.loadInRedis(listOfRestaurant);
     }
 }

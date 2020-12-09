@@ -5,26 +5,37 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import schema.CsvSchema;
 
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CsvReader {
 
-    protected static Map<String,Restaurant> readCsvFile() throws IOException {
-        String resourcesPathString = System.getProperty("user.dir") + "/src/main/resources";
-        String csvFilename = "restaurant_dataset.csv";
-        String file = resourcesPathString + "/" + csvFilename;
+    protected static Map<String,Restaurant> readCsvFile() {
 
-        Iterable<CSVRecord> parser = CSVFormat.RFC4180
-                .withHeader(CsvSchema.class).withFirstRecordAsHeader()
-                .parse(new FileReader(file));
+        Map<String,Restaurant> listOfRestaurant;
 
-        Map<String,Restaurant> listOfRestaurant = new HashMap<>();
+        try {
+            Class cls = Class.forName("setup.CsvReader");
+            ClassLoader cLoader = cls.getClassLoader();
 
-        for (CSVRecord record : parser) {
-            listOfRestaurant.put(createNewKey(record), createNewRestaurant(record));
+            InputStream inputStream = cLoader.getResourceAsStream("restaurant_dataset.csv");
+            InputStreamReader inputReader = new InputStreamReader(inputStream);
+
+            Iterable<CSVRecord> parser = CSVFormat.RFC4180
+                    .withHeader(CsvSchema.class).withFirstRecordAsHeader()
+                    .parse(new BufferedReader(inputReader));
+
+            listOfRestaurant = new HashMap<>();
+
+            for (CSVRecord record : parser) {
+                listOfRestaurant.put(createNewKey(record), createNewRestaurant(record));
+            }
+
+        }catch(Exception e){
+            System.out.println("  Error! Unable to read from file");
+            System.out.println("APPLICATION SET-UP ENDED");
+            return null;
         }
 
         return listOfRestaurant;
