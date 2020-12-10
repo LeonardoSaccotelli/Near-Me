@@ -9,10 +9,12 @@ Project developed during the Database Design with New Generation Models course @
 under the supervision of dr. [Nicola Fanizzi](http://lacam.di.uniba.it:8000/people/nicola.html).
 
 ## Prerequisites
+
 By default, requirement for compilation are:
 * JDK 8+
 * Maven
-<br>Requirement for running application is:
+
+Requirement for running application is:
 * Redis 3+
 
 ## Built with Maven
