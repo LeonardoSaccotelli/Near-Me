@@ -11,8 +11,7 @@ under the supervision of dr. [Nicola Fanizzi](http://lacam.di.uniba.it:8000/peop
 ## Prerequisites
 By default, requirement for compilation are:
 * JDK 8+
-* Maven  
-Requirement for running application is:
+* Maven<br>Requirement for running application is:
 * Redis 3+
 
 ## Built with Maven
